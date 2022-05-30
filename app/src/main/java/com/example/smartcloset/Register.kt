@@ -1,4 +1,4 @@
-package com.example.smartvending
+package com.example.smartcloset
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.smartcloset.R
 
-class Frag2: Fragment() {
+class Register: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.frag2, container, false)
+        return inflater.inflate(R.layout.register, container, false)
     }
 }

@@ -1,14 +1,11 @@
 package com.example.smartcloset
 
-import Frag3
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.smartvending.Frag1
-import com.example.smartvending.Frag2
-import com.example.smartvending.Frag4
+import com.example.smartvending.FindPw
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -31,25 +28,25 @@ class MainActivity : AppCompatActivity() {
                         bnv_main.itemIconTintList = ContextCompat.getColorStateList(this, R.color.color_bnv1)
                         bnv_main.itemTextColor = ContextCompat.getColorStateList(this, R.color.color_bnv1)
 //                        frag1_txt.text = "ok"
-                        Frag1("first ok")
+                        Login("first ok")
                         // Respond to navigation item 1 click
                     }
                     R.id.second -> {
 //                        bnv_main.itemIconTintList = ContextCompat.getColorStateList(this, R.color.color_bnv2)
 //                        bnv_main.itemTextColor = ContextCompat.getColorStateList(this, R.color.color_bnv2)
-                        Frag2()
+                        Register()
                         // Respond to navigation item 2 click
                     }
                     R.id.third -> {
 //                        bnv_main.itemIconTintList = ContextCompat.getColorStateList(this, R.color.color_bnv2)
 //                        bnv_main.itemTextColor = ContextCompat.getColorStateList(this, R.color.color_bnv2)
-                        Frag3()
+                        FindId()
                         // Respond to navigation item 3 click
                     }
                     else -> {
 //                        bnv_main.itemIconTintList = ContextCompat.getColorStateList(this, R.color.color_bnv1)
 //                        bnv_main.itemTextColor = ContextCompat.getColorStateList(this, R.color.color_bnv1)
-                        Frag4()
+                        FindPw()
                     }
                 }
             )
