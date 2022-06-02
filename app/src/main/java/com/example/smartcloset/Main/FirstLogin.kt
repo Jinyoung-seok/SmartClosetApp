@@ -1,8 +1,9 @@
-package com.example.smartcloset
+package com.example.smartcloset.Main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.smartcloset.R
 import kotlinx.android.synthetic.main.login.*
 
 class FirstLogin : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.smartcloset
+package com.example.smartcloset.Main
 
 import android.os.Bundle
 import android.view.LayoutInflater
