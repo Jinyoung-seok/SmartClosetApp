@@ -1,4 +1,5 @@
-package com.example.smartcloset
+package com.example.smartcloset.Main
+
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,8 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.smartcloset.R
 
-class Register: Fragment() {
+class FindId: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.register, container, false)
+        return inflater.inflate(R.layout.findid, container, false)
     }
 }

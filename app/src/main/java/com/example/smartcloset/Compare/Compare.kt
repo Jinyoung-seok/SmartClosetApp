@@ -1,17 +1,14 @@
 package com.example.smartcloset.Compare
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.smartcloset.MainActivity
+import com.example.smartcloset.Main.MainActivity
 import com.example.smartcloset.R
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.compare.*
 
 class Compare: Fragment() {
     var datalist =ArrayList<Int>()

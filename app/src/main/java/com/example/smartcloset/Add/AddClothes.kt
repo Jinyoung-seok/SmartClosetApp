@@ -1,4 +1,4 @@
-package com.example.smartcloset
+package com.example.smartcloset.Add
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
+import com.example.smartcloset.R
 import kotlinx.android.synthetic.main.addclothes.*
-import kotlinx.android.synthetic.main.login.*
 
 class AddClothes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class AddClothes : AppCompatActivity() {
         save_addclothes.setOnClickListener{
             Toast.makeText(this,"저장 버튼입니다",Toast.LENGTH_SHORT).show()
         }
-        val myadapter = ArrayAdapter.createFromResource(this,R.array.tagdata1, android.R.layout.simple_spinner_item)
+        val myadapter = ArrayAdapter.createFromResource(this, R.array.tagdata1, android.R.layout.simple_spinner_item)
 //        val autoAdapter = ArrayAdapter.createFromResource(this,R.array.tagdata1,android.R.layout.simple_spinner_item)
 
         myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
