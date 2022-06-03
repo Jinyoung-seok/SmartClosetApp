@@ -23,7 +23,7 @@ class AddClothes : AppCompatActivity() {
     val REQUEST_STORAGE = 1
 
     val PERMISSION_CAMERA = 1001 //맞나?
-    val REQUEST_CAMERA = 1 //맞나?
+    val REQUEST_CAMERA = 2 //맞나?
 
     lateinit var realUri:Uri
 
