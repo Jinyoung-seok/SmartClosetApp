@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smartcloset">
+    <!-- 권한 그룹 : STORAGE-->
 
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <!-- 권한 그룹 : CAMERA -->
     <uses-permission android:name="android.permission.CAMERA"/>
-
-    <!-- 권한 그룹 : STORAGE-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-feature android:name="android.hardware.camera" android:required="true"/>
     <application
         android:allowBackup="true"
@@ -18,8 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartCloset">
-        <activity android:name=".AddClothes"/>
-        <activity android:name=".Main.MainActivity">
+        <activity android:name=".Main.MainActivity"></activity>
+        <activity android:name=".MyPage.MyPage"></activity>
+        <activity android:name=".Check.Check" />
+        <activity android:name=".Add.AddClothes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +27,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main.FirstLogin">
-
         </activity>
     </application>
 
