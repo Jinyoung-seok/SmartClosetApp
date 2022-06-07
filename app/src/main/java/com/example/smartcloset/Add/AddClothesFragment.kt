@@ -19,7 +19,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.smartcloset.R
-import com.example.smartcloset.Add.AddClothes
 import com.example.smartcloset.Main.MainActivity
 import kotlinx.android.synthetic.main.addclothes.*
 import kotlinx.android.synthetic.main.addclothes.view.*
@@ -47,33 +46,37 @@ class AddClothesFragment: Fragment() {
 
         val viewF = inflater.inflate(R.layout.addclothes, container, false)
 
-        val myadapter = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1, android.R.layout.simple_spinner_item)
-//        val autoAdapter = ArrayAdapter.createFromResource(this,R.array.tagdata1,android.R.layout.simple_spinner_item)
+        val myadapter1 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1, android.R.layout.simple_spinner_item)
 
-        myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        viewF.tag1.adapter = myadapter
+        myadapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        viewF.tag1.adapter = myadapter1
+        viewF.tag1.setSelection(0)
 
         viewF.tag1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                viewF.tag1txt.text = (view as TextView).text
+                viewF.tag1txt?.text = (view as? TextView)?.text
+                viewF.tag2.setSelection(0)
+                viewF.tag3.setSelection(0)
                 when(viewF.tag1txt?.text){
                     "상의" -> {
                         //두번째 태그 오픈
                         val myadapter2 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_1, android.R.layout.simple_spinner_item)
                         myadapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         viewF.tag2.adapter = myadapter2
+                        viewF.tag2.setSelection(0)
 
                         viewF.tag2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                                    viewF.tag2txt.text = (view as TextView).text
+                                    viewF.tag2txt?.text = (view as? TextView)?.text
                                     // 세번째 태그 오픈
                                     val myadapter3 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_4, android.R.layout.simple_spinner_item)
                                     myadapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                                     viewF.tag3.adapter = myadapter3
+                                    viewF.tag3.setSelection(0)
 
                                     viewF.tag3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                                         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                                            viewF.tag3txt.text = (view as TextView).text
+                                            viewF.tag3txt?.text = (view as? TextView)?.text
                                         }
                                         override fun onNothingSelected(parent: AdapterView<*>?) {
                                         }
@@ -87,10 +90,11 @@ class AddClothesFragment: Fragment() {
                         val myadapter2 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_2,android.R.layout.simple_spinner_item)
                         myadapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         viewF.tag2.adapter = myadapter2
+                        viewF.tag2.setSelection(0)
 
                         viewF.tag2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                                    viewF.tag2txt.text = (view as TextView).text
+                                    viewF.tag2txt?.text = (view as? TextView)?.text
 
                                     when (viewF.tag2txt.text) {
                                         "슬랙스" -> {
@@ -98,10 +102,11 @@ class AddClothesFragment: Fragment() {
                                             val myadapter3 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_5, android.R.layout.simple_spinner_item)
                                             myadapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                                             viewF.tag3.adapter = myadapter3
+                                            viewF.tag3.setSelection(0)
 
                                             viewF.tag3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                                                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long ) {
-                                                        viewF.tag3txt.text = (view as TextView).text
+                                                        viewF.tag3txt?.text = (view as? TextView)?.text
                                                     }
                                                     override fun onNothingSelected(parent: AdapterView<*>?) {
                                                     }
@@ -113,10 +118,11 @@ class AddClothesFragment: Fragment() {
                                             val myadapter3 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_6, android.R.layout.simple_spinner_item)
                                             myadapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                                             viewF.tag3.adapter = myadapter3
+                                            viewF.tag3.setSelection(0)
 
                                             viewF.tag3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                                                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long ) {
-                                                        viewF.tag3txt.text = (view as TextView).text
+                                                        viewF.tag3txt?.text = (view as? TextView)?.text
                                                     }
                                                     override fun onNothingSelected(parent: AdapterView<*>?) {
                                                     }
@@ -127,10 +133,11 @@ class AddClothesFragment: Fragment() {
                                             val myadapter3 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_5, android.R.layout.simple_spinner_item)
                                             myadapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                                             viewF.tag3.adapter = myadapter3
+                                            viewF.tag3.setSelection(0)
 
                                             viewF.tag3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                                                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long ) {
-                                                    viewF.tag3txt.text = (view as TextView).text
+                                                    viewF.tag3txt?.text = (view as? TextView)?.text
                                                 }
                                                 override fun onNothingSelected(parent: AdapterView<*>?) {
                                                 }
@@ -141,10 +148,11 @@ class AddClothesFragment: Fragment() {
                                             val myadapter3 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_5, android.R.layout.simple_spinner_item)
                                             myadapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                                             viewF.tag3.adapter = myadapter3
+                                            viewF.tag3.setSelection(0)
 
                                             viewF.tag3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                                                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long ) {
-                                                    viewF.tag3txt.text = (view as TextView).text
+                                                    viewF.tag3txt?.text = (view as? TextView)?.text
                                                 }
                                                 override fun onNothingSelected(parent: AdapterView<*>?) {
                                                 }
@@ -152,30 +160,30 @@ class AddClothesFragment: Fragment() {
                                         }
                                     }
                                 }
-
-
                                 override fun onNothingSelected(parent: AdapterView<*>?) {
                                 }
                         }
                     }
+
                     "아우터" -> {
                         val myadapter2 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_3,android.R.layout.simple_spinner_item)
                         myadapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                         viewF.tag2.adapter = myadapter2
-                        viewF.tag2.setSelection(position,false)
+                        viewF.tag2.setSelection(0)
 
                         viewF.tag2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                                viewF.tag2txt.text = (view as TextView).text
+                                viewF.tag2txt?.text = (view as? TextView)?.text
 
                                 // 세번째 태그 오픈
                                 val myadapter3 = ArrayAdapter.createFromResource(mainActivity, R.array.tagdata1_4, android.R.layout.simple_spinner_item)
                                 myadapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                                 viewF.tag3.adapter = myadapter3
+                                viewF.tag3.setSelection(0)
 
                                 viewF.tag3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                                        viewF.tag3txt.text = (view as TextView).text
+                                        viewF.tag3txt?.text = (view as? TextView)?.text
                                     }
                                     override fun onNothingSelected(parent: AdapterView<*>?) {
                                     }
@@ -186,6 +194,7 @@ class AddClothesFragment: Fragment() {
                             }
                         }
                     }
+
                 }
             }
 

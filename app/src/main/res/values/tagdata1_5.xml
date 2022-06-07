@@ -2,6 +2,7 @@
 <!--슬랙스 색상 배열-->
 <resources>
     <string-array name="tagdata1_5">
+        <item></item>
         <item>검정</item>
         <item>화이트</item>
         <item>네이비</item>

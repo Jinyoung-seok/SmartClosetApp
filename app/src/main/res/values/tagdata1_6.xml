@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--슬랙스 색상 배열-->
+<!--청바지 색상 배열-->
 <resources>
     <string-array name="tagdata1_6">
+        <item></item>
         <item>연청</item>
         <item>중청</item>
         <item>진청</item>
