@@ -40,9 +40,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="53dp"
             android:layout_height="wrap_content"
-            android:text="태그1"
+            android:text="카테고리"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="20dp"/>
         <Spinner
@@ -65,9 +65,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="53dp"
             android:layout_height="wrap_content"
-            android:text="태그1"
+            android:text="태그2"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="20dp"/>
         <Spinner
@@ -91,9 +91,9 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="53dp"
             android:layout_height="wrap_content"
-            android:text="태그1"
+            android:text="태그3"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="20dp"/>
         <Spinner

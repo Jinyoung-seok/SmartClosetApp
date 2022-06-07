@@ -1,5 +1,4 @@
-//************************카메라 기능 따로 떼어놓은 파일
-
+//*************************************공유용*********************
 package com.example.smartcloset.Add
 
 import android.Manifest
@@ -16,14 +15,10 @@ import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.Fragment
 import com.example.smartcloset.R
 import kotlinx.android.synthetic.main.addclothes.*
 
-open class AddClothes : AppCompatActivity() {
-
-    val PERMISSION_Album = 101 // 앨범 권한 처리
-    val REQUEST_STORAGE = 1
+class AddClothes1 : AppCompatActivity() {
 
     val PERMISSION_CAMERA = 1001 //맞나?
     val REQUEST_CAMERA = 2 //맞나?
@@ -35,45 +30,11 @@ open class AddClothes : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.addclothes)
 
-        // 앨범 버튼 클릭 리스너 구현
-        val albumBtn = findViewById<Button>(R.id.album_addclothes) as Button
-        albumBtn.setOnClickListener{
-            requirePermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), PERMISSION_Album)
-        }
-
         // 카메라 버튼 클릭 리스너 구현
-        val cameraBtn = findViewById<Button>(R.id.camera_addclothes) as Button
+        val cameraBtn = findViewById<Button>(R.id.camera_addclothes) as Button //R.id옆에 카메라실행시킬 버튼 넣으시면 돼요!
         cameraBtn.setOnClickListener(View.OnClickListener {
             requirePermissions(arrayOf(Manifest.permission.CAMERA), PERMISSION_CAMERA)
         })
-
-
-//        camera_addclothes.setOnClickListener{
-//            Toast.makeText(this,"카메라 버튼입니다", Toast.LENGTH_SHORT).show()
-//        }
-
-        cancel_addclothes.setOnClickListener{
-            Toast.makeText(this,"취소 버튼입니다",Toast.LENGTH_SHORT).show()
-        }
-        save_addclothes.setOnClickListener{
-            Toast.makeText(this,"저장 버튼입니다",Toast.LENGTH_SHORT).show()
-        }
-        val myadapter = ArrayAdapter.createFromResource(this, R.array.tagdata1, android.R.layout.simple_spinner_item)
-//        val autoAdapter = ArrayAdapter.createFromResource(this,R.array.tagdata1,android.R.layout.simple_spinner_item)
-
-        myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        tag1.adapter =myadapter
-
-        tag1.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                tag1txt.text = (view as TextView).text
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-//                result.text = "선택된 가수가 없습니다."
-            }
-
-        }
 
     }
 
@@ -83,7 +44,6 @@ open class AddClothes : AppCompatActivity() {
      * */
     @RequiresApi(Build.VERSION_CODES.N)
     fun requirePermissions(permissions: Array<String>, requestCode: Int) {
-//        Logger.d("권한 요청")
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             permissionGranted(requestCode)
         } else {
@@ -100,8 +60,6 @@ open class AddClothes : AppCompatActivity() {
         }
     }
 
-
-    //*************앨범 버튼 및 사진 가져와서 이미지뷰에 띄우기********************
 
     /** 사용자가 권한을 승인하거나 거부한 다음에 호출되는 메서드
      * @param requestCode 요청한 주체를 확인하는 코드
@@ -126,7 +84,6 @@ open class AddClothes : AppCompatActivity() {
     private fun permissionGranted(requestCode: Int) {
         when (requestCode) {
             PERMISSION_CAMERA -> openCamera()
-            PERMISSION_Album -> openGallery()
         }
     }
 
@@ -137,23 +94,8 @@ open class AddClothes : AppCompatActivity() {
                 "카메라 권한을 승인해야 카메라를 사용할 수 있습니다.",
                 Toast.LENGTH_LONG
             ).show()
-
-            PERMISSION_Album -> Toast.makeText(
-                this,
-                "저장소 권한을 승인해야 앨범에서 이미지를 불러올 수 있습니다.",
-                Toast.LENGTH_LONG
-            ).show()
         }
     }
-
-    fun openGallery() {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = MediaStore.Images.Media.CONTENT_TYPE
-        startActivityForResult(intent, REQUEST_STORAGE)
-
-    }
-
-
 
     //***************카메라
     @RequiresApi(Build.VERSION_CODES.N)
@@ -168,6 +110,7 @@ open class AddClothes : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_CAMERA)
         }
     }
+
     @RequiresApi(Build.VERSION_CODES.N)
     private fun newFileName(): String {
         val sdf = SimpleDateFormat("yyyyMMdd_HHmmss")
@@ -182,9 +125,6 @@ open class AddClothes : AppCompatActivity() {
         return this.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
     }
 
-
-
-
     //******************실행
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -193,11 +133,6 @@ open class AddClothes : AppCompatActivity() {
             when (requestCode) {
                 REQUEST_CAMERA -> {
                     realUri?.let { uri ->
-                        imagePreview.setImageURI(uri)
-                    }
-                }
-                REQUEST_STORAGE -> {
-                    data?.data?.let { uri ->
                         imagePreview.setImageURI(uri)
                     }
                 }

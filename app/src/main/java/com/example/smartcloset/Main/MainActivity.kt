@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.smartcloset.Add.AddClothesFragment
 import com.example.smartcloset.Compare.Compare
 import com.example.smartcloset.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.second -> {
 //                        bnv_main.itemIconTintList = ContextCompat.getColorStateList(this, R.color.color_bnv2)
 //                        bnv_main.itemTextColor = ContextCompat.getColorStateList(this, R.color.color_bnv2)
-                        Register()
+                        AddClothesFragment()
                         // Respond to navigation item 2 click
                     }
                     R.id.third -> {
