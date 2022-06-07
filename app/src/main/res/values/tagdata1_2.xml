@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tagdata1_2">
+        <item>청바지</item>
+        <item>슬랙스</item>
+        <item>반바지</item>
+        <item>츄리닝</item>
+    </string-array>
+
+</resources>

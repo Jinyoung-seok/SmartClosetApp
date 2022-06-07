@@ -45,6 +45,7 @@ open class AddClothes : AppCompatActivity() {
         val cameraBtn = findViewById<Button>(R.id.camera_addclothes) as Button
         cameraBtn.setOnClickListener(View.OnClickListener {
             requirePermissions(arrayOf(Manifest.permission.CAMERA), PERMISSION_CAMERA)
+
         })
 
 
