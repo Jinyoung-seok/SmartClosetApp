@@ -1,12 +1,11 @@
-package com.example.mqtttestpro.mqtt
+package com.example.smartcloset.network
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.CheckBox
 import android.widget.Toast
-import com.example.mqtttestpro.R
+import com.example.smartcloset.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.eclipse.paho.client.mqttv3.MqttMessage
 
@@ -26,38 +25,38 @@ class MqttTestActivity : AppCompatActivity(), View.OnClickListener {
         //브로커연결
         mymqtt?.connect(arrayOf<String>(sub_topic)) //
         //이벤트 연결
-        roll_down.setOnClickListener(this)
-        roll_up.setOnClickListener(this)
-        switch1.setOnClickListener(this)
+//        roll_down.setOnClickListener(this)
+//        roll_up.setOnClickListener(this)
+//        switch1.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         var data:String = ""
-        if(v?.id== R.id.roll_down) {
-            if (auto == true) {
-                Toast.makeText(this, "자동모드입니다", Toast.LENGTH_LONG).show()
-            } else {
-                data = "roll_down"
-                Toast.makeText(this, "블라인드를 내립니다.", Toast.LENGTH_LONG).show()
-            }
-        }else if(v?.id== R.id.roll_up){
-            if (auto == true) {
-                Toast.makeText(this, "자동모드입니다", Toast.LENGTH_LONG).show()
-            } else {
-                data = "roll_up"
-                Toast.makeText(this, "블라인드를 올립니다.", Toast.LENGTH_LONG).show()
-            }
-        }else if (v?.id== R.id.switch1){
-            if(auto == false){
-                data = "auto_on"
-                auto = true
-                Toast.makeText(this,"자동모드를 실행합니다.",Toast.LENGTH_LONG).show()
-            }else{
-                data = "auto_off"
-                auto = false
-                Toast.makeText(this,"자동모드를 종료합니다.",Toast.LENGTH_LONG).show()
-            }
-        }
+//        if(v?.id== R.id.roll_down) {
+//            if (auto == true) {
+//                Toast.makeText(this, "자동모드입니다", Toast.LENGTH_LONG).show()
+//            } else {
+//                data = "roll_down"
+//                Toast.makeText(this, "블라인드를 내립니다.", Toast.LENGTH_LONG).show()
+//            }
+//        }else if(v?.id== R.id.roll_up){
+//            if (auto == true) {
+//                Toast.makeText(this, "자동모드입니다", Toast.LENGTH_LONG).show()
+//            } else {
+//                data = "roll_up"
+//                Toast.makeText(this, "블라인드를 올립니다.", Toast.LENGTH_LONG).show()
+//            }
+//        }else if (v?.id== R.id.switch1){
+//            if(auto == false){
+//                data = "auto_on"
+//                auto = true
+//                Toast.makeText(this,"자동모드를 실행합니다.",Toast.LENGTH_LONG).show()
+//            }else{
+//                data = "auto_off"
+//                auto = false
+//                Toast.makeText(this,"자동모드를 종료합니다.",Toast.LENGTH_LONG).show()
+//            }
+//        }
         mymqtt?.publish("iot/blind",data)
     }
     //액티비티 내부에 디자인된 위젯을 액세스해야하므로 외부 클래스에 있으면 액티비티의 구성요소를 접근하기 위해서 액티비티를 넘겨주어야하는 번거로움을 없애기 위해

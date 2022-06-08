@@ -1,4 +1,4 @@
-package com.example.mqtttestpro.mqtt
+package com.example.smartcloset.network
 
 import android.content.Context
 import android.util.Log
