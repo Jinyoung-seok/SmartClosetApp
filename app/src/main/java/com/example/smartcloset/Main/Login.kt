@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.example.smartcloset.R
 import com.example.smartcloset.network.MyMqtt
 import kotlinx.android.synthetic.main.login.*
-import kotlinx.android.synthetic.main.register.*
 import org.eclipse.paho.client.mqttv3.MqttMessage
 
 class Login: AppCompatActivity(), View.OnClickListener {
@@ -44,8 +43,10 @@ class Login: AppCompatActivity(), View.OnClickListener {
             mymqtt?.publish("login",data)
             // 아이디 비밀번호 일치하는지 확인하는 과정이 들어가고....
             if(msg=="OK") {
-                Toast.makeText(this, "로그인 되었습니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
                 //로그인 이후로 넘어가기
+            }else{
+                Toast.makeText(this, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show()
             }
         }
     }

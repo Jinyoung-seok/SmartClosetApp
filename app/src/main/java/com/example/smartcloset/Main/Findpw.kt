@@ -9,18 +9,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.smartcloset.R
 import com.example.smartcloset.network.MyMqtt
-import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.findpw.*
 import org.eclipse.paho.client.mqttv3.MqttMessage
 
-class FirstLogin: AppCompatActivity(), View.OnClickListener {
-    val sub_topic = "login/result"
+class Findpw: AppCompatActivity(), View.OnClickListener {
+    val sub_topic = "findpw/result"
     val server_uri = "tcp://192.168.200.107:1883" //broker의 ip와 port
     var mymqtt: MyMqtt? = null
     lateinit var msg:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        setContentView(R.layout.findid)
         //Mqtt통신을 수행항 Mqtt객체를 생성
         mymqtt = MyMqtt(this, server_uri)
         //브로커에서 메시지 전달되면 호출될 메소드를 넘기기
@@ -28,7 +28,9 @@ class FirstLogin: AppCompatActivity(), View.OnClickListener {
         //브로커연결
         mymqtt?.connect(arrayOf<String>(sub_topic)) //
 
-        login.setOnClickListener(this)
+        submit_findpw.setOnClickListener(this)
+        back_findpw.setOnClickListener(this)
+
     }
     fun onReceived(topic:String, message: MqttMessage) {
         //토픽의 수신을 처리
@@ -38,16 +40,17 @@ class FirstLogin: AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         var data: String = ""
-        if(v?.id== R.id.login) {
-            data = "${id.text}, ${pw.text}"
-            mymqtt?.publish("login",data)
-            // 아이디 비밀번호 일치하는지 확인하는 과정이 들어가고....
+        if(v?.id== R.id.submit_findpw) {
+            data = "${id_findpw.text}, ${name_findpw.text}, ${birthday_findpw.text}"
+            mymqtt?.publish("findpw",data)
+            // 확인하는 과정이 들어가고.... 아이디 데이터 받아서
             if(msg=="OK") {
-                Toast.makeText(this, "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show()
-                //로그인 이후로 넘어가기
+                show_findpw.text = "PW는 () 입니다"
             }else{
-                Toast.makeText(this, "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "회원정보를 확인하세요", Toast.LENGTH_SHORT).show()
             }
+        }else if(v?.id==R.id.back_findpw){
+            Toast.makeText(this, "돌아가는 버튼 구현하기", Toast.LENGTH_SHORT).show()
         }
     }
 
